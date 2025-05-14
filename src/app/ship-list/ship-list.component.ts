@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-ship-list',
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  templateUrl: './ship-list.component.html',
+  styleUrl: './ship-list.component.scss'
 })
-export class AppComponent {
+export class ShipListComponent {
   title = 'star-wars-ships';
 }
