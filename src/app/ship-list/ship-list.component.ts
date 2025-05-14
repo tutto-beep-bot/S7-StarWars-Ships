@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { StarshipService } from '../services/starship.service';
 
 @Component({
   selector: 'app-ship-list',
-  imports: [RouterOutlet],
+  imports: [],
   templateUrl: './ship-list.component.html',
   styleUrl: './ship-list.component.scss'
 })
-export class ShipListComponent {
-  title = 'star-wars-ships';
+export class ShipListComponent implements OnInit {
+  starships: {name: string; model: string;}[] = [];
+
+  constructor(private starshipService: StarshipService) {}
+
+  ngOnInit(): void {
+    this.starshipService.getStarShips().subscribe((response) =>{
+      this.starships = response.results;
+    })
+  }
 }
