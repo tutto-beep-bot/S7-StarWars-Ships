@@ -1,0 +1,15 @@
+$max-width: 1000px;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.ship-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(27, 27, 27);
+    color: white;
+    padding: 1rem 1rem;
+}

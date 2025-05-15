@@ -1,10 +1,12 @@
-<ul>
-  @for(starship of starships; track starship) {
-    <div class="ship-container">
-      <li>
-        <strong>{{ starship.name }}</strong>
-        <em> {{ starship.model}}</em>
-      </li>
-    </div>
-  }
-</ul>
+<div class="container">
+    @for(starship of starships; track starship) {
+      <div class="ship-container">
+        <div class="ship-title">
+          <strong>{{ starship.name }}</strong>
+        </div>
+        <div class="ship-description">
+          <em> {{ starship.model}}</em>
+        </div>
+      </div>
+    }
+</div>
