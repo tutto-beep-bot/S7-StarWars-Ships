@@ -1,13 +1,13 @@
 <app-logo></app-logo>
 <div class="container">
     @for(starship of starships; track starship) {
-      <div class="ship-container">
+      <a class="ship-container"  [routerLink]="['/ships', getId(starship.url)]">
         <div class="ship-title">
           <strong>{{ starship.name }}</strong>
         </div>
         <div class="ship-description">
           <em> {{ starship.model}}</em>
         </div>
-      </div>
+      </a>
     }
 </div>
