@@ -1,0 +1,34 @@
+.ship-info {
+    background-color: rgba(30, 30, 30, 0.95);
+    color: rgb(163, 161, 161);
+    font-family: 'Lucida Console', 'Courier New', monospace;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 3px solid #ff4444;
+}
+
+.description{
+    margin-bottom: 2rem;
+}
+
+.ship-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 2rem;
+    margin-top: 1rem;
+}
+
+.ship-stats div {
+    font-size: 1rem;
+    line-height: 1.4;
+
+}
+
+.ship-details-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 2rem;
+    background: #000;
+    gap: 2rem;
+}

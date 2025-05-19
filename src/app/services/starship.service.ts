@@ -6,6 +6,17 @@ export interface StarShipApiResponse {
   results: {name: string; model: string; url: string;}[];
 }
 
+export interface StarShip {
+  name: string;
+  model: string;
+  url: string;
+  manufacturer: string;
+  cost_in_credits: string;
+  length: string;
+  max_atmosphering_speed: string;
+  crew: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +25,8 @@ export class StarshipService {
 
   constructor(private http: HttpClient) {}
 
-  getStarshipId(id: string){
-    return this.http.get<StarShipApiResponse>(`${this.apiUrl}${id}/`)
+  getStarshipId(id: string): Observable<StarShip> {
+    return this.http.get<StarShip>(`${this.apiUrl}${id}/`)
   }
 
   getStarShips(): Observable<StarShipApiResponse> {
