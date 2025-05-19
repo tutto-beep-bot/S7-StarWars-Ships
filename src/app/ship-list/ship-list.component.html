@@ -1,13 +1,21 @@
 <app-logo></app-logo>
 <div class="container">
-    @for(starship of starships; track starship) {
-      <a class="ship-container"  [routerLink]="['/ships', getId(starship.url)]">
+  @if(starshipService.ships().length > 0) {
+    @for(starship of starshipService.ships(); track starship) {
+      <a class="ship-container" [routerLink]="['/ships', getId(starship.url)]">
         <div class="ship-title">
           <strong>{{ starship.name }}</strong>
         </div>
         <div class="ship-description">
-          <em> {{ starship.model}}</em>
+          <em>{{ starship.model }}</em>
         </div>
       </a>
     }
+
+    <div class="load-more-container">
+      <button (click)="loadMore()">Load More</button>
+    </div>
+  } @else {
+    <p>Loading ships...</p>
+  }
 </div>

@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { signal, computed } from '@angular/core';
 
 export interface StarShipApiResponse {
-  results: {name: string; model: string; url: string;}[];
+  // results: {name: string; model: string; url: string; next: string | null;}[];
+  next: string | null;
+  results: StarShip[];
 }
 
 export interface StarShip {
@@ -22,6 +25,11 @@ export interface StarShip {
 })
 export class StarshipService {
   private apiUrl = 'https://swapi.py4e.com/api/starships/'
+  private readonly _ships = signal<StarShip[]>([]);
+  readonly ships = computed(() => this._ships())
+
+  private nextPageUrl: string | null = 'https://swapi.py4e.com/api/starships/';
+
 
   constructor(private http: HttpClient) {}
 
@@ -31,5 +39,21 @@ export class StarshipService {
 
   getStarShips(): Observable<StarShipApiResponse> {
     return this.http.get<StarShipApiResponse>(this.apiUrl);
+  }
+
+  fetchNextPage(): void{
+    if(!this.nextPageUrl) return;
+
+    this.http.get<StarShipApiResponse>(this.nextPageUrl).subscribe((data) => {
+      const updated = [...this._ships(), ...data.results];
+      this._ships.set(updated);
+      this.nextPageUrl = data.next;
+    })
+  }
+
+  resetShips(): void {
+    this._ships.set([]);
+    this.nextPageUrl = this.apiUrl;
+    this.fetchNextPage();
   }
 }

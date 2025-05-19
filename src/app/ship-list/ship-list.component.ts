@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { StarshipService } from '../services/starship.service';
 import { LogoComponent } from '../logo/logo.component';
+import { signal } from '@angular/core';
 
 @Component({
   selector: 'app-ship-list',
@@ -12,13 +13,19 @@ import { LogoComponent } from '../logo/logo.component';
 })
 export class ShipListComponent implements OnInit {
   starships: {name: string; model: string; url: string;}[] = [];
+  ships = signal([])
 
-  constructor(private starshipService: StarshipService) {}
+  constructor(public starshipService: StarshipService) {}
 
   ngOnInit(): void {
-    this.starshipService.getStarShips().subscribe((response) =>{
-      this.starships = response.results;
-    })
+    // this.starshipService.getStarShips().subscribe((response) =>{
+    //   this.starships = response.results;
+    // })
+    this.starshipService.resetShips();
+  }
+
+  loadMore(): void {
+    this.starshipService.fetchNextPage();
   }
 
   getId(url: string): string {

@@ -12,4 +12,15 @@ $max-width: 1000px;
     background-color: rgb(27, 27, 27);
     color: white;
     padding: 1rem 1rem;
+    text-decoration: none;
+}
+
+.load-more-container{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    border: none;
+    border-radius: 0.8rem;
 }
