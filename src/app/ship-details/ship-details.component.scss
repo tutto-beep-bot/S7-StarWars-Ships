@@ -1,10 +1,12 @@
 .ship-info {
-    background-color: rgba(30, 30, 30, 0.95);
+    background-color: rgba(35, 36, 43, 0.95);
     color: rgb(163, 161, 161);
-    font-family: 'Lucida Console', 'Courier New', monospace;
+    font-family: 'Courier New', monospace;
     padding: 2rem;
+    padding-bottom: 5rem;
     border-radius: 12px;
     border-left: 3px solid #ff4444;
+    flex: 0 0 60%;
 }
 
 .description{
@@ -19,7 +21,7 @@
 }
 
 .ship-stats div {
-    font-size: 1rem;
+    font-size: 0.8rem;
     line-height: 1.4;
 
 }
@@ -31,4 +33,11 @@
     padding: 2rem;
     background: #000;
     gap: 2rem;
+    
+}
+
+.ship-img {
+    flex: 1; 
+    min-width: 300px; 
+    background: transparent;
 }

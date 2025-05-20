@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { signal, computed } from '@angular/core';
 
 export interface StarShipApiResponse {
-  // results: {name: string; model: string; url: string; next: string | null;}[];
   next: string | null;
   results: StarShip[];
 }
