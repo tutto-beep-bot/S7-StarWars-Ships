@@ -1,25 +1,25 @@
-<app-logo></app-logo>
+<div class="background-container">
 
-
-@if (ship) {
-    <div class="ship-details-wrapper">
-        <div class="ship-img">
-            <img src="" alt="">
-        </div>
-        <div class="ship-info">
-            <h2>{{ ship.name.toUpperCase() }}</h2>
-            <p class="description">
-                Lorem ipsum dolor sit amet, blablabla...
-            </p>
-            <div class="ship-stats">
-                <div><strong>Model:</strong> {{ ship.model }}</div>
-                <div><strong>Manufacturer:</strong> {{ ship.manufacturer }}</div>
-                <div><strong>Cost in Credits:</strong> {{ ship.cost_in_credits }}</div>
-                <div><strong>Length:</strong> {{ ship.length }}</div>
-                <div><strong>Atmospheric Speed:</strong> {{ ship.max_atmosphering_speed }}</div>
-                <div><strong>Crew:</strong> {{ ship.crew }}</div>
+    @if (ship) {
+        <div class="ship-details-wrapper">
+            <div class="ship-img">
+                <img src="" alt="">
             </div>
-
+            <div class="ship-info">
+                <h2>{{ ship.name.toUpperCase() }}</h2>
+                <p class="description">
+                    Lorem ipsum dolor sit amet, blablabla...
+                </p>
+                <div class="ship-stats">
+                    <div><strong>Model:</strong> {{ ship.model }}</div>
+                    <div><strong>Manufacturer:</strong> {{ ship.manufacturer }}</div>
+                    <div><strong>Cost in Credits:</strong> {{ ship.cost_in_credits }}</div>
+                    <div><strong>Length:</strong> {{ ship.length }}</div>
+                    <div><strong>Atmospheric Speed:</strong> {{ ship.max_atmosphering_speed }}</div>
+                    <div><strong>Crew:</strong> {{ ship.crew }}</div>
+                </div>
+                
+            </div>
         </div>
-    </div>
-}
+    }
+</div>

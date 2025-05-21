@@ -3,12 +3,11 @@ import { StarShip, StarshipService } from '../services/starship.service';
 import { ActivatedRoute } from '@angular/router';
 import { StarShipApiResponse } from '../services/starship.service';
 import { RouterModule } from '@angular/router';
-import { LogoComponent } from '../logo/logo.component';
 
 @Component({
   selector: 'app-ship-details',
   standalone: true,
-  imports: [RouterModule, LogoComponent],
+  imports: [RouterModule],
   templateUrl: './ship-details.component.html',
   styleUrl: './ship-details.component.scss'
 })

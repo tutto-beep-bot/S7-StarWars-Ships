@@ -31,13 +31,24 @@
     align-items: flex-start;
     justify-content: space-between;
     padding: 2rem;
-    background: #000;
+    background: transparent;
     gap: 2rem;
     
 }
 
 .ship-img {
-    flex: 1; 
     min-width: 300px; 
     background: transparent;
+}
+
+.background-container {
+    display: flex;
+    justify-content: center;
+    background-image: url('../../assets/galaxy.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100svh;
+    width: 100%;
+    
 }
