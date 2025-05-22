@@ -1,1 +1,26 @@
-<p>login works!</p>
+<form [formGroup]="form" (ngSubmit)="login()">
+  <h2>Login</h2>
+
+  <label>Email</label>
+  <input formControlName="email" />
+
+  @if (form.controls['email'].errors && form.controls['email'].touched) {
+    <small *ngIf="form.controls['email'].errors['required']">
+      Email is required.
+    </small>
+    <small *ngIf="form.controls['email'].errors['email']">
+      Enter a valid email.
+    </small>
+  }
+
+  <label>Password</label>
+  <input type="password" formControlName="password" />
+
+  @if (form.controls['password'].errors && form.controls['password'].touched) {
+    <small *ngIf="form.controls['password'].errors['required']">
+      Password is required.
+    </small>
+  }
+
+  <button type="submit">Log In</button>
+</form>
