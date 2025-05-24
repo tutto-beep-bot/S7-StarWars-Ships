@@ -4,8 +4,12 @@
     </div>
 
     <div class="auth-actions">
-        <button [routerLink]="['/login']">LOGIN</button>
-        <span class="separator">//</span>
-        <button [routerLink]="['/register']">SIGN UP</button>
+        @if (user()) {
+            <button (click)="logout()"><strong>LOG OUT</strong></button>
+        } @else {
+            <button [routerLink]="['/login']"><strong>LOG IN</strong></button>
+            <span class="separator">//</span>
+            <button [routerLink]="['/register']"><strong>SIGN UP</strong></button>
+        }
     </div>
 </div>
