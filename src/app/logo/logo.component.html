@@ -1,3 +1,11 @@
-<div class="logo-wrapper">
-    <img src="assets\download.webp" alt="starWars logo">
+<div class="logo-bar">
+    <div class="logo-wrapper">
+        <img src="assets\download.webp" alt="starWars logo">
+    </div>
+
+    <div class="auth-actions">
+        <button [routerLink]="['/login']">LOGIN</button>
+        <span class="separator">//</span>
+        <button [routerLink]="['/register']">SIGN UP</button>
+    </div>
 </div>
