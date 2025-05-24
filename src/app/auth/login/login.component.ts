@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormGroup, Validators, NonNullableFormBuilder } from '@angular/forms';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router, RouterModule } from '@angular/router';
 import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 

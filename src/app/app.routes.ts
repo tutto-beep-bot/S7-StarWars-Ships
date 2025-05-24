@@ -3,14 +3,14 @@ import { ShipListComponent } from './ship-list/ship-list.component';
 import { ShipDetailsComponent } from './ship-details/ship-details.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { authGuard } from './guards/auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent},
     { path: 'ships/:id', component: ShipDetailsComponent},
     { path: 'home', component: HomeComponent},
-    { path: 'starships', component: ShipListComponent, canActivate: [authGuard]},
+    { path: 'starships', component: ShipListComponent, canActivate: [AuthGuard]},
     {
         path: 'login',
         loadComponent: () =>
