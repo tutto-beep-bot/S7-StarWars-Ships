@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { signal, computed } from '@angular/core';
+import { map } from 'rxjs';
 
 export interface StarShipApiResponse {
   next: string | null;
@@ -17,6 +18,11 @@ export interface StarShip {
   length: string;
   max_atmosphering_speed: string;
   crew: string;
+  pilots: string[];
+}
+
+export interface Pilot {
+  name: string;
 }
 
 @Injectable({
@@ -54,5 +60,11 @@ export class StarshipService {
     this._ships.set([]);
     this.nextPageUrl = this.apiUrl;
     this.fetchNextPage();
+  }
+
+  getPilot(url: string): Observable<Pilot> {
+    return this.http.get<any>(url).pipe(
+      map(data => ({ name: data.name }))
+    );
   }
 }

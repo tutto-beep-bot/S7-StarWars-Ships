@@ -1,6 +1,5 @@
-<h1>STARSHIPS</h1>
 <div class="background-container">
-
+    <h1>STARSHIPS</h1>
     @if (ship) {
         <div class="ship-details-wrapper">
             <div class="ship-img">
@@ -23,4 +22,22 @@
             </div>
         </div>
     }
+
+    <div class="pilot-section">
+        <h1>PILOTS</h1>
+        @if (pilots.length > 0) {
+            <div class="pilot-list">
+                @for (pilot of pilots; track pilot.name){
+                    <ul>
+                        <li><app-pilot [pilot]="pilot"></app-pilot></li>
+                    </ul>
+                }
+            </div>
+        } @else {
+            <div class="pilot-list">
+                <p>No known pilots for this ship.</p>
+            </div>
+        }
+    </div>
 </div>
+

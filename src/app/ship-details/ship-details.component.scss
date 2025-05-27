@@ -51,12 +51,18 @@ h1 {
 
 .background-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     background-image: url('../../assets/galaxy.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     min-height: 100svh;
     width: 100%;
-    
+    font-family: 'Courier New', monospace;
+
+}
+
+.pilot-list{
+    color: white;
+    margin: 2rem;
 }
