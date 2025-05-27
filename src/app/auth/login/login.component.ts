@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormGroup, Validators, NonNullableFormBuilder } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 
 @Component({
@@ -13,10 +13,10 @@ import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 })
 export class LoginComponent {
   form!: FormGroup;
-  
+  returnUrl: string = '/';
     
 
-  constructor(private fb: NonNullableFormBuilder, private afAuth: Auth, private router: Router) {}
+  constructor(private fb: NonNullableFormBuilder, private afAuth: Auth, private router: Router, private route: ActivatedRoute) {}
 
 
 
@@ -25,6 +25,8 @@ export class LoginComponent {
       email: this.fb.control('', [Validators.required, Validators.email]),
       password: this.fb.control('', Validators.required)
     });
+
+    this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
   };
 
   login() {
@@ -34,7 +36,7 @@ export class LoginComponent {
     }
     const { email, password } = this.form.getRawValue();
     signInWithEmailAndPassword(this.afAuth, email, password)
-      .then(() => this.router.navigate(['/starships']))
+      .then(() => this.router.navigateByUrl(this.returnUrl))
       .catch(() => alert('Wrong credentials'));
   }
 }
