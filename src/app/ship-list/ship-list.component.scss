@@ -13,6 +13,10 @@ $max-width: 1000px;
     color: white;
     padding: 1rem 1rem;
     text-decoration: none;
+    transition: transform 0.2s ease;
+}
+.ship-container:hover{
+    transform: scale(1.05);
 }
 
 .load-more-container{

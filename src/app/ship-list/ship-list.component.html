@@ -2,11 +2,13 @@
   @if(starshipService.ships().length > 0) {
     @for(starship of starshipService.ships(); track starship) {
       <a class="ship-container" [routerLink]="['/ships', getId(starship.url)]">
-        <div class="ship-title">
-          <strong>{{ starship.name }}</strong>
-        </div>
-        <div class="ship-description">
-          <em>{{ starship.model }}</em>
+        <div class="ship-box">
+          <div class="ship-title">
+            <strong>{{ starship.name }}</strong>
+          </div>
+          <div class="ship-description">
+            <em>{{ starship.model }}</em>
+          </div>
         </div>
       </a>
     }
