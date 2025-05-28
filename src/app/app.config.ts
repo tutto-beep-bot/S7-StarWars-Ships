@@ -11,7 +11,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes,
       withInMemoryScrolling({
-        scrollPositionRestoration: 'top' // This ensures scroll to top on navigation
+        scrollPositionRestoration: 'top'
       })),
     provideHttpClient(),
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
