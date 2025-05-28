@@ -1,0 +1,9 @@
+<ul>
+    @if (movies.length > 0) {
+        @for (movie of movies; track movie) {
+            <li><strong>{{ movie }}</strong></li>
+        }
+    } @else {
+        <li>No movies found for this ship.</li>
+    }
+</ul>

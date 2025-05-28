@@ -5,11 +5,12 @@ import { StarShipApiResponse } from '../services/starship.service';
 import { RouterModule } from '@angular/router';
 import { PilotComponent } from '../pilot/pilot.component';
 import { Pilot } from '../services/starship.service'
+import { MoviesComponent } from '../movies/movies.component';
 
 @Component({
   selector: 'app-ship-details',
   standalone: true,
-  imports: [RouterModule, PilotComponent],
+  imports: [RouterModule, PilotComponent, MoviesComponent],
   templateUrl: './ship-details.component.html',
   styleUrl: './ship-details.component.scss'
 })

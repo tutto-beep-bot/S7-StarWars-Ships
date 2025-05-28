@@ -25,6 +25,11 @@ export interface Pilot {
   name: string;
 }
 
+export interface Film {
+  title: string;
+  starships: string[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -65,6 +70,17 @@ export class StarshipService {
   getPilot(url: string): Observable<Pilot> {
     return this.http.get<any>(url).pipe(
       map(data => ({ name: data.name }))
+    );
+  }
+
+  getMoviesForShip(shipUrl: string): Observable<string[]> {
+    return this.http.get<any>('https://swapi.py4e.com/api/films/').pipe(
+      map(res => res.results),
+      map((films: Film[]) =>
+        films
+          .filter(film => film.starships.includes(shipUrl))
+          .map(film => film.title)
+      )
     );
   }
 }
