@@ -1,59 +1,45 @@
 # StarWarsShips
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+This is a project made to display StarWars Spaceships and show details about each spaceship. I use Firebase for authenticating Login and Register in the website and guards to protect the routes in case the user isn't logged in. This project was generated using Angular version 19.2.6.
 
-## Development server
+<br>
+
+## Requirements
+
+1. Angular CLI (version 16 or higher)
+2. Node.js
+3. Visual Studio Code(or any preferred code editor)
+4. A modern web browser (e.g. Chrome, Firefox, Edge)
+
+<br>
+
+## Usage
+
+1. Clone this repo on Visual Studio Code:
+```bash
+git clone https://github.com/tutto-beep-bot/S7-StarWars-Ships.git
+```
+
+2. Install npm and Angular/CLI:
+```bash
+$ npm install
+$ npm install @angular/cli
+```
 
 To start a local development server, run:
 
 ```bash
-ng serve
+ng serve -o
 ```
+<br>
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
 ## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+To execute unit tests with Karma test runner, use the following command:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
