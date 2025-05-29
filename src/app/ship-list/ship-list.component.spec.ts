@@ -1,29 +1,29 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ShipListComponent } from './ship-list.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { StarshipService } from '../services/starship.service';
 
-describe('AppComponent', () => {
+describe('ShipListComponent', () => {
+let fixture!: ComponentFixture<ShipListComponent>
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ShipListComponent],
+      imports: [ShipListComponent, RouterTestingModule.withRoutes([])],
+      providers: [
+        {
+          provide: StarshipService,
+          useValue: {
+            ships: () => []  
+          }
+        }
+      ]
     }).compileComponents();
+    fixture = TestBed.createComponent(ShipListComponent);
   });
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(ShipListComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have the 'star-wars-ships' title`, () => {
-    const fixture = TestBed.createComponent(ShipListComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('star-wars-ships');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(ShipListComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, star-wars-ships');
   });
 });
